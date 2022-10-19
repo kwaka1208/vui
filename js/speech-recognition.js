@@ -35,7 +35,9 @@ recognition.onresult = function (event) {
 			// resultValue = $("#result").val() + "\r\n" + complete;
 			$("#result").val(resultValue);
 			$("#progress").val("");
-			speak(complete)
+			recognition.stop();
+			speak(complete);
+			recognition.start();
 		}
 		//認識の中間結果
 		else {
@@ -61,13 +63,13 @@ function recognition_control() {
 
 function speak(sentence) {
 	// 発言を作成
-	recognition.stop();
+	// recognition.stop();
 	const uttr = new SpeechSynthesisUtterance();
 	uttr.lang = "ja-JP"
 	uttr.text = sentence
 	// 発言を再生 (発言キューに発言を追加)
 	speechSynthesis.speak(uttr)
-	recognition.start();
+	// recognition.start();
 }
 
 function openPage(urL, target) {
