@@ -32,8 +32,8 @@
 			//認識の最終結果
 			if(results[i].isFinal){
 				complete = results[i][0].transcript;
-				alert(complete)
-				resultValue = $("#result").val() + "\r\n" + complete;
+				resultValue = complete;
+				// resultValue = $("#result").val() + "\r\n" + complete;
 				$("#result").val(resultValue);
 				$("#progress").val("");
 				speak(complete)
@@ -66,11 +66,13 @@
 
 	function speak(sentence) {
 		// 発言を作成
+		recognition.pause();
 		const uttr = new SpeechSynthesisUtterance();
 		uttr.lang = "ja-JP"
 		uttr.text = sentence
 		// 発言を再生 (発言キューに発言を追加)
 		speechSynthesis.speak(uttr)
+		recognition.start();
 	}
 
 	function openWeb
