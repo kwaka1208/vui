@@ -35,9 +35,7 @@ recognition.onresult = function (event) {
 			// resultValue = $("#result").val() + "\r\n" + complete;
 			$("#result").val(resultValue);
 			$("#progress").val("");
-			recognition.stop();
 			speak(complete);
-			recognition.start();
 		}
 		//認識の中間結果
 		else {
