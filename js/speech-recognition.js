@@ -71,7 +71,7 @@ function speak(sentence) {
 	// recognition_control(true)
 }
 
-function openPage(urL, target) {
+function openPage(url, target) {
 	Window.open(url, target)
 }
 
