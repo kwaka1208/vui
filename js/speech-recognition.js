@@ -72,7 +72,7 @@ function speak(sentence) {
 }
 
 function openPage(url, target) {
-	Window.open(url, target)
+	window.open(url, target)
 }
 
 function getAmazonRequest(sentence) {
