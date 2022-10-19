@@ -74,5 +74,3 @@
 		speechSynthesis.speak(uttr)
 		recognition.start();
 	}
-
-	function openWeb
