@@ -61,13 +61,13 @@ function recognition_control() {
 
 function speak(sentence) {
 	// 発言を作成
-	recognition.abort();
+	recognition_control(false)
 	const uttr = new SpeechSynthesisUtterance();
 	uttr.lang = "ja-JP"
 	uttr.text = sentence
 	// 発言を再生 (発言キューに発言を追加)
 	speechSynthesis.speak(uttr)
-	recognition.start();
+	recognition_control(true)
 }
 
 function openPage(urL, target) {
