@@ -31,10 +31,11 @@
 		for (var i = event.resultIndex; i<results.length; i++){
 			//認識の最終結果
 			if(results[i].isFinal){
-				resultValue = $("#result").val() + "\r\n" + results[i][0].transcript;
+				complete = results[i][0].transcript;
+				resultValue = $("#result").val() + "\r\n" + complete;
 				$("#result").val(resultValue);
 				$("#progress").val("");
-				speak(resultValue)
+				speak(complete)
 			}
 			//認識の中間結果
 			else{
@@ -70,3 +71,5 @@
 		// 発言を再生 (発言キューに発言を追加)
 		speechSynthesis.speak(uttr)
 	}
+
+	function openWeb
