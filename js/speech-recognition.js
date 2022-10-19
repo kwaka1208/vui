@@ -35,7 +35,8 @@ recognition.onresult = function (event) {
 			// resultValue = $("#result").val() + "\r\n" + complete;
 			$("#result").val(resultValue);
 			$("#progress").val("");
-			speak(complete);
+			openPage(getAmazonRequest(), 'amazon')
+			// speak(complete);
 		}
 		//認識の中間結果
 		else {
@@ -61,15 +62,19 @@ function recognition_control() {
 
 function speak(sentence) {
 	// 発言を作成
-	recognition_control(false)
+	// recognition_control(false)
 	const uttr = new SpeechSynthesisUtterance();
 	uttr.lang = "ja-JP"
 	uttr.text = sentence
 	// 発言を再生 (発言キューに発言を追加)
 	speechSynthesis.speak(uttr)
-	recognition_control(true)
+	// recognition_control(true)
 }
 
 function openPage(urL, target) {
 	Window.open(url, target)
+}
+
+function getAmazonRequest(sentence) {
+	return "https://www.amazon.co.jp/s?k=" + encodeURI(sentence)
 }
