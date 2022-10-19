@@ -61,11 +61,15 @@ function recognition_control() {
 
 function speak(sentence) {
 	// 発言を作成
-	recognition.pause();
+	recognition.stop();
 	const uttr = new SpeechSynthesisUtterance();
 	uttr.lang = "ja-JP"
 	uttr.text = sentence
 	// 発言を再生 (発言キューに発言を追加)
 	speechSynthesis.speak(uttr)
 	recognition.start();
+}
+
+function openPage(urL, target) {
+	Window.open(url, target)
 }
