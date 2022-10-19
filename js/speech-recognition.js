@@ -49,14 +49,14 @@
 		buttonR = document.getElementById("recog_button");
 		if (state)
 		{
-			buttonR.value = "音声認識開始";
+			buttonR.value = "会話開始";
 			buttonR.className = "btn btn-primary";
 			recognition.stop();
 			state = false;
 		}
 		else
 		{
-			buttonR.value = "音声認識停止";
+			buttonR.value = "会話終了";
 			buttonR.className = "btn btn-danger";
 			recognition.start();
 			state = true;
