@@ -35,7 +35,7 @@ recognition.onresult = function (event) {
 			// resultValue = $("#result").val() + "\r\n" + complete;
 			$("#result").val(resultValue);
 			$("#progress").val("");
-			openPage(getAmazonRequest(), 'amazon')
+			openPage(getAmazonRequest(complete), 'amazon')
 			// speak(complete);
 		}
 		//認識の中間結果
