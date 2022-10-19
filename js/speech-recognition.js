@@ -35,8 +35,16 @@ recognition.onresult = function (event) {
 			// resultValue = $("#result").val() + "\r\n" + complete;
 			$("#result").val(resultValue);
 			$("#progress").val("");
-			openPage(getAmazonRequest(complete), 'amazon')
-			// speak(complete);
+			switch(getMode()) {
+			case 'amazon':
+				openPage(getAmazonRequest(complete), 'amazon')
+				break;
+
+			default:
+			case 'response':
+				speak(complete);
+				break;
+			}
 		}
 		//認識の中間結果
 		else {
@@ -72,9 +80,26 @@ function speak(sentence) {
 }
 
 function openPage(url, target) {
-	window.open(url, target)
+	window.open(url, target, "popup")
 }
 
 function getAmazonRequest(sentence) {
 	return "https://www.amazon.co.jp/s?k=" + encodeURI(sentence)
 }
+
+function getMode() {
+	let ctrls = document.getElementById('ctrl')
+	modes = ctrls.elements['mode']
+	let checkValue = ''
+	for (let i = 0; i < modes.length; i++){
+    	if (modes.item(i).checked){
+			checkValue = modes.item(i).value;
+		}
+    }
+	console.log("checked value is " + checkValue)
+	return checkValue
+}
+
+$('input').change(function() {
+ 	console.log( $(this).val() );
+});

@@ -27,9 +27,13 @@
 
 <body>
 	<div class="frame">
-		<form id="param">
+		<form id="ctrl">
 			<input type="button" onclick="recognition_control();" value="会話開始" class="btn btn-primary"
-				id="recog_button">
+				id="recog_button" style="margin-bottom: 15px;">
+				<br>
+				<input type="radio" name='mode' id="response" value='response'><label for="response">オウム返し</label>
+				<input type="radio" name='mode' id="amazon" value='amazon' checked><label for="response">Amazon</label>
+			
 		</form>
 		<hr size="1">
 		<div id="state"></div>
