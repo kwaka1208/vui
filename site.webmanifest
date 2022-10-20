@@ -1,0 +1,9 @@
+{
+    "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+    "name": "vui-agent",
+    "short_name": "vui-agent",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "ブラウザベースの音声対話エージェントです"
+}  
