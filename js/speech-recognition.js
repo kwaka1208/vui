@@ -2,7 +2,8 @@
 var recognition = new webkitSpeechRecognition();
 var state = false; // 音声認識状態
 recognition.lang = "ja-JP";
-recognition.continuous = true; // 連続で認識を行う。
+// recognition.continuous = true; // 連続で認識を行う。
+recognition.continuous = false; // 連続で認識を行う。
 recognition.interimResults = true; //中間結果の表示オン
 
 //発話の認識中
@@ -23,6 +24,11 @@ recognition.onnomatch = function () {
 recognition.onerror = function () {
 	$("#progress").val("Error: " + event.error);
 };
+
+recognition.onend = function () {
+	recognition.start();
+};
+
 
 //認識が終了したときのイベント
 recognition.onresult = function (event) {
@@ -45,6 +51,7 @@ recognition.onresult = function (event) {
 				speak(complete);
 				break;
 			}
+			recognition.stop();
 		}
 		//認識の中間結果
 		else {
@@ -76,7 +83,6 @@ function speak(sentence) {
 	uttr.text = sentence
 	// 発言を再生 (発言キューに発言を追加)
 	speechSynthesis.speak(uttr)
-	// recognition_control(true)
 }
 
 function openPage(url, target) {
@@ -99,7 +105,3 @@ function getMode() {
 	console.log("checked value is " + checkValue)
 	return checkValue
 }
-
-$('input').change(function() {
- 	console.log( $(this).val() );
-});
