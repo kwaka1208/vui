@@ -31,8 +31,8 @@ recognition.onresult = function (event) {
 		//認識の最終結果
 		if (results[i].isFinal) {
 			complete = results[i][0].transcript;
-			resultValue = complete;
-			// resultValue = $("#result").val() + "\r\n" + complete;
+			// resultValue = complete;
+			resultValue = $("#result").val() + "\r\n" + complete;
 			$("#result").val(resultValue);
 			$("#progress").val("");
 			switch(getMode()) {
